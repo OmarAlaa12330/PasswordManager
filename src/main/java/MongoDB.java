@@ -1,7 +1,7 @@
 public enum MongoDB {
-    CLIENT_URL("mongodb://localhost:27017"),
-    DATABASE("Logins"),
-    COLLECTION("LoginData");
+    CLIENT_URL(),
+    DATABASE(),
+    COLLECTION();
 
     String str;
     MongoDB(String i){this.str = i;}

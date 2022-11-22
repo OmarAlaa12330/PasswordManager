@@ -6,15 +6,16 @@ public class Menu {
     public Menu(){
         String intro = "Hello, this is a password manager\n";
         while(true) {
-            String options = "What option would you like to do?\n"
-                    + "1- Add a new login.\n"
-                    + "2- Show all recorded logins.\n"
-                    + "3- Show a login.\n"
-                    + "4- Exit Session.\n"
-                    + "Please choose one of these options: "
+            String options = """
+                    What option would you like to do?
+                    1- Add a new login.
+                    2- Show all recorded logins.
+                    3- Show a login.
+                    4- Exit Session.
+                    Please choose one of these options:\s"""
                     ;
             System.out.print(intro + options);
-            int option = sc.nextInt();
+            int option = Validator.intValidator();
 
             switch (option) {
                 case 1 -> MongoDBHelpers.addLogin();

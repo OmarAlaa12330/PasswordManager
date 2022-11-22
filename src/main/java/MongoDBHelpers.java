@@ -1,13 +1,13 @@
 import Classes_Schemas.LoginDetails;
 
-import com.mongodb.BasicDBObject;
+
 import com.mongodb.client.*;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.MongoClient;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
-import java.awt.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
@@ -75,7 +75,7 @@ public class MongoDBHelpers {
 
         List<LoginDetails> logins = new ArrayList<>();
 
-        // change all data to the encrypted one, like the moodle website test one in the if statement
+        // decrypts all the retrieved logins, and adds them to the array
         for (Document document : iterDoc) {
             LoginDetails loginInstance = decryptDoc(document);
             logins.add(loginInstance);
@@ -101,7 +101,13 @@ public class MongoDBHelpers {
         FindIterable<Document> cursor = col.find(eq("userName",aes.encrypt(username)));
         System.out.println("Items found: ");
         for (Document doc: cursor){
-            System.out.println(decryptDoc(doc));
+            LoginDetails decryptedDoc = decryptDoc(doc);
+            String loginStrConstructor=String.format("%-40s | %-40s | \n%-40s | %-40s |\n",
+                    "Website: "+decryptedDoc.getWebsite(),
+                    "Login added in: "+decryptedDoc.getMonth()+"/"+decryptedDoc.getYear(),
+                    "Username: "+decryptedDoc.getUserName(),
+                    "Password:  "+decryptedDoc.getPassword());
+            System.out.println(loginStrConstructor);
         }
 
     }

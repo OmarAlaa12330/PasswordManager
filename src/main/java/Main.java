@@ -4,10 +4,6 @@ import java.io.Console;
 // Look for design patters
 
 
-/*
-command:
-java -classpath C:\Users\omara\IdeaProjects\PasswordManager\target\classes;C:\Users\omara\.m2\repository\org\mongodb\mongodb-driver-sync\4.7.2\mongodb-driver-sync-4.7.2.jar;C:\Users\omara\.m2\repository\org\mongodb\bson\4.7.2\bson-4.7.2.jar;C:\Users\omara\.m2\repository\org\mongodb\mongodb-driver-core\4.7.2\mongodb-driver-core-4.7.2.jar;C:\Users\omara\.m2\repository\org\mongodb\bson-record-codec\4.7.2\bson-record-codec-4.7.2.jar;C:\Users\omara\.m2\repository\org\jetbrains\annotations\24.0.0\annotations-24.0.0.jar Main
- */
 
 public class Main {
     static Scanner read = new Scanner(System.in);

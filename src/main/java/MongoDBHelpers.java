@@ -6,6 +6,7 @@ import com.mongodb.client.MongoClient;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
@@ -43,8 +44,16 @@ public class MongoDBHelpers {
         System.out.print("Enter username=> ");
         String username = read.next();
 
+
         System.out.print("Enter password=> ");
-        String password = read.next();
+        String password;
+        //read from "real" terminal
+        Console cons;
+        if((cons = System.console())!= null)
+            password = new String(cons.readPassword());
+        else
+            //read from IDE terminal
+            password = read.next();
 
         System.out.print("Enter website=> ");
         String website = read.next();

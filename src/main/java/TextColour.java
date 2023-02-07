@@ -6,8 +6,8 @@ public enum TextColour {
     WARNING("\u001B[31m"),
     RESET("\u001B[0m"); //white
     final String col;
-    TextColour(String col){
-        this.col = col;
+    TextColour(String colour){
+        col = colour;
     }
 
 }

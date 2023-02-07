@@ -31,10 +31,11 @@ public class AES_Class {
     private static SecretKeySpec SecretKey;
 
     //key to encrypt and decrypt
-    private static final String privateKey = "P@s5w0rd";
+    //TODO: make it from an algorithm that creates the key from the username and password
+    private static final String privateKey = "P@s5w0rd"; //AdminShe
 
     public void setSecretKey(String myKey){
-        MessageDigest sha = null;
+        MessageDigest sha;
         try{
             byte[] key = myKey.getBytes(StandardCharsets.UTF_8);
             sha =MessageDigest.getInstance("SHA-1");

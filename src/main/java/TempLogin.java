@@ -4,7 +4,7 @@ public enum TempLogin {
 
     final String user, pw;
     TempLogin(String inp, String inp2){
-        this.user = inp;
-        this.pw = inp2;
+        user = inp;
+        pw = inp2;
     }
 }

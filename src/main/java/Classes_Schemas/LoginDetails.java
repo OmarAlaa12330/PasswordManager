@@ -13,7 +13,7 @@ public class LoginDetails {
 
     //creating instance
     public LoginDetails(String un, String pw, String url){
-        this._ID = new ObjectId(); //removed _ID from args \ needs to be made random
+        _ID = new ObjectId(); //removed _ID from args \ needs to be made random
         userName = un;
         password = pw;
         website = url;
@@ -36,7 +36,7 @@ public class LoginDetails {
 
     //setters
     //no setter for _Id as it's a constant string
-    public void setUserName(String username){this.userName = username;}
+    public void setUserName(String userName){this.userName = userName;}
     public void setPassword(String password){this.password = password;}
     public void setWebsite(String website){this.website = website;}
     public void setMonth(int month){this.month = month;}

@@ -61,7 +61,8 @@ public class MongoDBHelpers {
             InsertOneResult result = col.insertOne(doc);
             System.out.println(("Success! Inserted document id: " + result.getInsertedId()));
         }catch(Exception e){
-            System.err.println(e);
+            System.out.println("!!!!!!!![ERROR CAUGHT]!!!!!!!!");
+            e.printStackTrace();
         }
     }
 

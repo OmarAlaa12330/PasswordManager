@@ -4,6 +4,6 @@ public enum MongoDB {
     COLLECTION("LoginData");
 
     final String str;
-    MongoDB(String i){this.str = i;}
+    MongoDB(String i){str = i;}
 
 }

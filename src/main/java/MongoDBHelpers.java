@@ -1,23 +1,23 @@
 import Classes_Schemas.LoginDetails;
 
-
 import com.mongodb.client.*;
 import com.mongodb.client.result.InsertOneResult;
 import com.mongodb.client.MongoClient;
 import org.bson.Document;
 import static com.mongodb.client.model.Filters.eq;
 
-
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
 public class MongoDBHelpers {
-    static  MongoClient client = MongoClients.create(MongoDB.CLIENT_URL.str);
+    static MongoClient client = MongoClients.create(MongoDB.CLIENT_URL.str);
     static MongoDatabase db = client.getDatabase(MongoDB.DATABASE.str);
     static MongoCollection<Document> col = db.getCollection(MongoDB.COLLECTION.str);
     static Scanner read  = new Scanner(System.in);
     static AES_Class aes = new AES_Class();
+
+    private MongoDBHelpers(){}
 
     static LoginDetails decryptDoc(Document info){
         LoginDetails loginInstance = new LoginDetails(
@@ -61,7 +61,7 @@ public class MongoDBHelpers {
             InsertOneResult result = col.insertOne(doc);
             System.out.println(("Success! Inserted document id: " + result.getInsertedId()));
         }catch(Exception e){
-            System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -98,12 +98,12 @@ public class MongoDBHelpers {
         System.out.print("Enter the username: ");
         String username = read.next();
 
-        FindIterable<Document> cursor = col.find(eq("userName",aes.encrypt(username)));
+        FindIterable<Document> coll = col.find(eq("userName",aes.encrypt(username)));
         System.out.println("Items found: ");
-        for (Document doc: cursor){
+        for (Document doc: coll){
             LoginDetails decryptedDoc = decryptDoc(doc);
             String loginStrConstructor=String.format("%-40s | %-40s | \n%-40s | %-40s |\n",
-                    "Website: "+decryptedDoc.getWebsite(),
+                    "Website: " + decryptedDoc.getWebsite(),
                     "Login added in: "+decryptedDoc.getMonth()+"/"+decryptedDoc.getYear(),
                     "Username: "+decryptedDoc.getUserName(),
                     "Password:  "+decryptedDoc.getPassword());

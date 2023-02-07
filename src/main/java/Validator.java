@@ -9,7 +9,7 @@ public class Validator {
                 String input = sc.next();
                 return Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.println("The input is not a valid Number!");
+                System.out.println("The input is not a valid Number!\n please try again");
             }
         }
     }

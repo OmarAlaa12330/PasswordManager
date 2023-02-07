@@ -14,22 +14,22 @@ public class LoginDetails {
     //creating instance
     public LoginDetails(String un, String pw, String url){
         this._ID = new ObjectId(); //removed _ID from args \ needs to be made random
-        this.userName = un;
-        this.password = pw;
-        this.website = url;
+        userName = un;
+        password = pw;
+        website = url;
 
         //records the month and year in which the login details were made
         Calendar date = Calendar.getInstance();
-        this.year = date.get(Calendar.YEAR);
-        this.month = (date.get(Calendar.MONTH))+1;
+        year = date.get(Calendar.YEAR);
+        month = (date.get(Calendar.MONTH))+1;
     }
 
 
     //getters
-    public ObjectId get_ID(){return this._ID;}
-    public String getUserName(){return this.userName;}
-    public String getPassword(){return this.password;}
-    public String getWebsite(){return this.website;}
+    public ObjectId get_ID(){return _ID;}
+    public String getUserName(){return userName;}
+    public String getPassword(){return password;}
+    public String getWebsite(){return website;}
     public int getMonth(){return month;}
     public int getYear(){return year;}
 

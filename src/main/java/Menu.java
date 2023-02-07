@@ -1,8 +1,5 @@
-import java.util.Scanner;
 
 public class Menu {
-    public static Scanner sc = new Scanner(System.in);
-
     public Menu(){
         String intro = "Hello, this is a password manager\n";
         while(true) {
@@ -21,21 +18,19 @@ public class Menu {
                 case 1 -> MongoDBHelpers.addLogin();
                 case 2 -> MongoDBHelpers.retrieveAllLogins();
                 case 3 -> MongoDBHelpers.retrieveLogin();
-                case 4 -> shutSystem();
+                case 4 -> {
+                    return;
+                }
                 default -> wrongInput();
             }
         }
 
 
     }
-    public static void shutSystem(){
-        sc.close();
-        System.out.println("Thanks for your time! \nSession concluded.");
-        System.exit(0);
-    }
+
 
     void wrongInput(){
-        System.out.println("Wrong Input you fool! \nPlease try again.");
+        System.err.println("Invalid input, please try again");
     }
 
 }

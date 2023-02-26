@@ -1,5 +1,3 @@
-import org.jetbrains.annotations.NotNull;
-
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
@@ -17,7 +15,8 @@ import java.util.Base64;
  *      <p>Example:</p>
  *
  *      <pre>
- *      <code>      AES_Class f = new AES_Class();
+ *      <code
+ *      AES_Class f = new AES_Class();
  *          String oString = sc.next();
  *          String EncryptedStr = f.encrypt(oString);
  *          System.out.println(EncryptedStr);
@@ -72,6 +71,9 @@ public class AES_Class {
         }
         return null;
     }
+
+
+    //TODO: needs to add method/s to update the stored information within a logged "login"
 
 
 

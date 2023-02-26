@@ -35,7 +35,7 @@ public class LoginDetails {
 
 
     //setters
-    //no setter for _Id as it's a constant string
+    //no setter for _ID as it's a constant string
     public void setUserName(String userName){this.userName = userName;}
     public void setPassword(String password){this.password = password;}
     public void setWebsite(String website){this.website = website;}

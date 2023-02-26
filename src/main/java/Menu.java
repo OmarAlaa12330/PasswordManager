@@ -15,9 +15,9 @@ public class Menu {
             int option = Validator.intValidator();
 
             switch (option) {
-                case 1 -> MongoDBHelpers.addLogin();
-                case 2 -> MongoDBHelpers.retrieveAllLogins();
-                case 3 -> MongoDBHelpers.retrieveLogin();
+                case 1 -> MongoDBAPI.addLogin();
+                case 2 -> MongoDBAPI.retrieveAllLogins();
+                case 3 -> MongoDBAPI.retrieveLogin();
                 case 4 -> {
                     return;
                 }

@@ -11,14 +11,14 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.List;
 
-public class MongoDBHelpers {
+public class MongoDBAPI {
     static MongoClient client = MongoClients.create(MongoDB.CLIENT_URL.str);
     static MongoDatabase db = client.getDatabase(MongoDB.DATABASE.str);
     static MongoCollection<Document> col = db.getCollection(MongoDB.COLLECTION.str);
     static Scanner read  = new Scanner(System.in);
     static AES_Class aes = new AES_Class();
 
-    private MongoDBHelpers(){}
+    private MongoDBAPI(){}
 
     static LoginDetails decryptDoc(Document info){
         LoginDetails loginInstance = new LoginDetails(
@@ -35,7 +35,7 @@ public class MongoDBHelpers {
     /**
      * Adds a new login detail (Encrypted) to the database.
      * Prints out in the console if successful or throws error if not
-     *<p>TODO Add check to see if the login details are already registered or not.</p>
+     *<p>TODO: Add check to see if the login details are already registered or not.</p>
      * TODO Adding an encryption to the database for the password (To be tested, successful for now, needs more extensive tests)
      */
     public static void addLogin(){
